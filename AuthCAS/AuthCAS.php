@@ -176,7 +176,8 @@ class AuthCAS extends AuthPluginBase
             $cas_attrs=phpCAS::getAttributes();
             if (!in_array($cas_allowedservices,preg_split('/, |\[|\]/',$cas_attrs['allowedservices'])))
             {
-                $this->setAuthFailure(1, gT('You\'re not allowed to access to this application.'));
+                #$this->setAuthFailure(1, gT('You\'re not allowed to access to this application.'));
+                throw new CHttpException(401, 'You\'re not allowed to acces to this application');
                 return;
 	    }
         }
