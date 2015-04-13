@@ -74,7 +74,8 @@ class AuthCAS extends AuthPluginBase
         // FIXME: update
         'fullnameattr' => array(
             'type' => 'string',
-            'label' => 'Optional full name attributes (default when omitted is displayName)',
+            'label' => 'Optional full name attribute (default when omitted is displayName)',
+            'default' => 'displayName'
         ),
         'binddn' => array(
             'type' => 'string',
@@ -171,7 +172,7 @@ class AuthCAS extends AuthPluginBase
 
         // FIXME
 	// check CAS attributes allowedservices
-        if (! empty($cas_allowedservices))
+        if (!empty($cas_allowedservices))
         {
             $cas_attrs=phpCAS::getAttributes();
             if (!in_array($cas_allowedservices,preg_split('/, |\[|\]/',$cas_attrs['allowedservices'])))
@@ -223,7 +224,7 @@ class AuthCAS extends AuthPluginBase
             $binddn = $this->get('binddn');
             $bindpwd = $this->get('bindpwd');
             // FIXME
-            // chose attributes use in ldap for user's full name
+            // choose attributes use in ldap for user's full name
             $fullname = $this->get('fullnameattr');
             if (empty($fullname))
             {
