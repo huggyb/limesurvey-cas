@@ -171,7 +171,7 @@ class AuthCAS extends AuthPluginBase
         phpCAS::forceAuthentication();
 
         // FIXME
-	// check CAS attributes allowedservices
+    	// check CAS attributes allowedservices
         if (!empty($cas_allowedservices))
         {
             $cas_attrs=phpCAS::getAttributes();
@@ -180,7 +180,7 @@ class AuthCAS extends AuthPluginBase
                 #$this->setAuthFailure(1, gT('You\'re not allowed to access to this application.'));
                 throw new CHttpException(401, 'You\'re not allowed to acces to this application');
                 return;
-	    }
+	        }
         }
 
         $this->setUsername(phpCAS::getUser());
@@ -224,7 +224,7 @@ class AuthCAS extends AuthPluginBase
             $binddn = $this->get('binddn');
             $bindpwd = $this->get('bindpwd');
             // FIXME
-            // choose attributes use in ldap for user's full name
+            // attributes ldap for user's full name
             $fullname = $this->get('fullnameattr');
             if (empty($fullname))
             {
